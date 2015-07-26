@@ -36,4 +36,19 @@ if ($mysqli->connect_errno) {
       echo 'bad';
     }
  }
+if (isset($_POST['email']))
+  {
+   $mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
+   if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    }
+    $email   = sanitizeString($mysqli,$_POST['email']);
+    $result = $mysqli->query("SELECT * FROM userlist WHERE email='$email'");
+
+    if ($result->num_rows)
+     echo 'bad';
+    else
+     echo 'good';
+      $result->close();    
+  }
 ?>

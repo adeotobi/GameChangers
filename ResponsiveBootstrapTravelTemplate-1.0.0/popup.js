@@ -14,8 +14,12 @@ $(document).ready(function() {
     });
     
     $(".close").click(function(){
+        alert("super");
         $(".overlay").fadeToggle("fast");
     });
+    $( "#e-mail" ).blur(function() {
+        checkEmail();
+});
     
     $(document).keyup(function(e) {
         if(e.keyCode == 27 && $(".overlay").css("display") != "none" ) { 
@@ -139,4 +143,41 @@ function GetElementInsideContainer(containerID, childID) {
       request.send(params)
     }
 
-    
+    function checkEmail(email)
+    {
+      var email = document.getElementById("e-mail");
+      params  = "email=" + email.value
+      request = new ajaxRequest()
+      request.open("POST", "chkuser.php", true)
+      request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+      request.setRequestHeader("Content-length", params.length)
+      request.setRequestHeader("Connection", "close")
+
+      request.onreadystatechange = function()
+      {
+          
+        if (this.readyState == 4)
+        {
+            if (this.status == 200)
+          {
+            if (this.responseText != null)
+            {
+                if(this.responseText=='bad')
+                {
+                    //alert("dsfs");
+                     document.getElementById('mailinfo').innerHTML = "E-mail taken &#10008";
+                }
+                if(this.responseText=='good')
+                {
+                     document.getElementById('mailinfo').innerHTML = "&#9989";
+                }
+                //O('passinfo').innerHTML = this.responseText
+                //document.getElementById('userinfo').innerHTML = this.responseText
+            }
+             //document.getElementById('userinfo').innerHTML = this.responseText
+          }
+        }
+          
+      }
+      request.send(params)
+    }

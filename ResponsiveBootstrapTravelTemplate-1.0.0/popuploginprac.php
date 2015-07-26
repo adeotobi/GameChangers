@@ -22,7 +22,7 @@ echo '
                 <label for="e-mail">
                      E-mail:
                     <input type="email" name="e-mail" id="e-mail" placeholder="Enter e-mail address"  required />
-                    <span class="bspan" id="mailinfo"></span>
+                    <span class="bspan" id="mailinfo">.</span>
                 </label>
                 <label for="username">
                     Username:
