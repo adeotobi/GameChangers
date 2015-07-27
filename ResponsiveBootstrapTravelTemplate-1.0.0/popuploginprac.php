@@ -17,12 +17,12 @@ echo '
     <div class="login-wrapper">
         <div class="login-content" id="loginTarget">
             <a class="close">x</a>
-            <h3>Sign in</h3>
-            <form method="post" action="USA2S_registerlogin.php">
+            <h3>Register</h3>
+            <form method="post" action="USA2SA_registerlogin.php">
                 <label for="e-mail">
                      E-mail:
                     <input type="email" name="e-mail" id="e-mail" placeholder="Enter e-mail address"  required />
-                    <span class="bspan" id="mailinfo">.</span>
+                    <span class="bspan" id="mailinfo"></span>
                 </label>
                 <label for="username">
                     Username:
@@ -38,7 +38,7 @@ echo '
                     <input type="password" name="password2" id="password2" onkeyup="checkPassLength(this)" placeholder="re-enter passowrd" pattern=".{6,}" required />
                     <span class="bspan" id="passinfo">6 chars req.</span>
                 </label>
-                <button type="submit" id= "register-submit">Sign in</button>
+                <input type="submit" id= "register-submit" value="Register"></inputx>
             </form>
         </div>
     </div>

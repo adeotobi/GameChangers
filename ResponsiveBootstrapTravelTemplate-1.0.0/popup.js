@@ -14,11 +14,17 @@ $(document).ready(function() {
     });
     
     $(".close").click(function(){
-        alert("super");
+        
         $(".overlay").fadeToggle("fast");
     });
     $( "#e-mail" ).blur(function() {
         checkEmail();
+});
+    $( "#password2" ).blur(function() {
+        confirmPass();
+});
+    $( "#username" ).blur(function() {
+        checkUser();
 });
     
     $(document).keyup(function(e) {
@@ -32,12 +38,13 @@ function checkUserLength(user)
 {
     if(user.value.length>2)
     {
-       checkUser(user);
+       checkUser();
     }
 }
-    function checkUser(user)
+    function checkUser()
     {
         //alert("i hate u");
+      var user = document.getElementById("username");
       params  = "user=" + user.value
       request = new ajaxRequest()
       request.open("POST", "chkuser.php", true)
@@ -56,10 +63,13 @@ function checkUserLength(user)
                 if(this.responseText=='bad')
                 {
                      document.getElementById('userinfo').innerHTML = "username taken &#10008";
+                    $('#register-submit').attr('disabled','disabled');
+                    
                 }
                 if(this.responseText=='good')
                 {
                      document.getElementById('userinfo').innerHTML = "username available &#9989";
+                    $('#register-submit').removeAttr('disabled');
                 }
                 //document.getElementById("userinfo").innerHTML=xmlhttp.responseText ;
                 O('userinfo').innerHTML = this.responseText;
@@ -88,9 +98,10 @@ function checkUserLength(user)
 
 function checkPassLength(pass)
 {
+   
    if(pass.value.length>4)
     {
-       confirmPass(pass);
+       confirmPass();
     }
 }
 function GetElementInsideContainer(containerID, childID) {
@@ -98,9 +109,10 @@ function GetElementInsideContainer(containerID, childID) {
     var parent = elm ? elm.parentNode : {};
     return (parent.id && parent.id === containerID) ? elm : {};
 }
- function confirmPass(pass)
+ function confirmPass()
     {
       var password = document.getElementById("password");
+      var pass = document.getElementById("password2");
       if(password.value == pass.value)
       {
           params= "confirmBool=1";
@@ -143,7 +155,7 @@ function GetElementInsideContainer(containerID, childID) {
       request.send(params)
     }
 
-    function checkEmail(email)
+    function checkEmail()
     {
       var email = document.getElementById("e-mail");
       params  = "email=" + email.value
@@ -166,10 +178,12 @@ function GetElementInsideContainer(containerID, childID) {
                 {
                     //alert("dsfs");
                      document.getElementById('mailinfo').innerHTML = "E-mail taken &#10008";
+                    $('#register-submit').attr('disabled','disabled');
                 }
                 if(this.responseText=='good')
                 {
                      document.getElementById('mailinfo').innerHTML = "&#9989";
+                    $('#register-submit').removeAttr('disabled');
                 }
                 //O('passinfo').innerHTML = this.responseText
                 //document.getElementById('userinfo').innerHTML = this.responseText

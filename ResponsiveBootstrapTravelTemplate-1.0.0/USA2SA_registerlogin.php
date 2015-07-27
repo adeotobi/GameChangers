@@ -36,13 +36,13 @@ if($result->num_rows==0)
     $message = str_replace("\n.", "\n..", $message);
     echo $message;
     $_SESSION['registered']=true;
-  //  mail($email, 'Usa2sa', $message,'From: USA2SA2015@gmail.com');
+    mail($email, 'Usa2sa Verification', $message,'From: NO_REPLY@DONT_REPLY.NET');
    
 } else
 {
     $_SESSION['taken']=true; //this is pointless since checking with ajax
 }
 //sleep(25);
-//header("location:verify.php");
+header("location:popuploginprac.php");
 exit();
 ?>
