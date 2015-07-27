@@ -1,5 +1,6 @@
+
 $(document).ready(function() {
-    $("#loginLink").click(function( event ){
+    $("#registerLink").click(function( event ){
            event.preventDefault();
            $(".overlay").fadeToggle("fast");
      });
@@ -8,7 +9,7 @@ $(document).ready(function() {
         event.preventDefault();
         var action = $(this).attr('data-action');
         
-        $("#loginTarget").load("ajax/" + action);
+        $("#registerTarget").load("ajax/" + action);
         
         $(".overlay").fadeToggle("fast");
     });

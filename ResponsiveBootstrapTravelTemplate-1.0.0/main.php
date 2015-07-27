@@ -1,17 +1,18 @@
+<?php
+echo'
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>USA2SA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700' rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700" rel="stylesheet" type="text/css">
 <script src="popup.js"></script>
-    <link href="popup.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+ <!--   <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.css" />-->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<link href="popup.css" rel="stylesheet">
 <script src="popup.js"></script>
 
 <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
@@ -272,3 +273,5 @@ San Francisco, CA 94107<br />
 </div>
 </body>
 </html>
+';
+    ?>
