@@ -2,23 +2,22 @@
 $(document).ready(function() {
     $("#registerLink").click(function( event ){
            event.preventDefault();
-           $(".overlay").fadeToggle("fast");
+           $("#overlay1").fadeToggle("fast");
      });
     
-    $(".overlayLink").click(function(event){
+    $("#overlayLink1").click(function(event){
         event.preventDefault();
         var action = $(this).attr('data-action');
         
         $("#registerTarget").load("ajax/" + action);
         
-        $(".overlay").fadeToggle("fast");
+        $("#overlay1").fadeToggle("fast");
     });
-    
-    $(".close").click(function(){
+    $("#close1").click(function(){
         
-        $(".overlay").fadeToggle("fast");
+        $("#overlay1").fadeToggle("fast");
     });
-    $( "#e-mail" ).blur(function() {
+     $( "#e-mail" ).blur(function() {
         checkEmail();
 });
     $( "#password2" ).blur(function() {
@@ -27,14 +26,42 @@ $(document).ready(function() {
     $( "#username" ).blur(function() {
         checkUser();
 });
-    
     $(document).keyup(function(e) {
-        if(e.keyCode == 27 && $(".overlay").css("display") != "none" ) { 
+        if(e.keyCode == 27 && $("#overlay1").css("display") != "none" ) { 
             event.preventDefault();
-            $(".overlay").fadeToggle("fast");
+            $("#overlay1").fadeToggle("fast");
+        }
+    });
+
+    //------------------------------------above register functions below login
+     $("#loginLink").click(function( event ){
+           event.preventDefault();
+           $("#overlay2").fadeToggle("fast");
+     }); 
+    $("#overlayLink2").click(function(event){
+        event.preventDefault();
+        var action = $(this).attr('data-action');
+        
+        $("#loginTarget").load("ajax/" + action);
+        
+        $("#overlay2").fadeToggle("fast");
+    });
+    
+    $("#close2").click(function(){
+        
+        $("#overlay2").fadeToggle("fast");
+    });
+//------------------------------------------------
+ 
+
+    $(document).keyup(function(e) {
+        if(e.keyCode == 27 && $("#overlay2").css("display") != "none" ) { 
+            event.preventDefault();
+            $("#overlay2").fadeToggle("fast");
         }
     });
 });
+   
 function checkUserLength(user)
 {
     if(user.value.length>2)

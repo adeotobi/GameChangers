@@ -49,8 +49,8 @@
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Landmarks</a></li>
                 </ul>
             </li>
-            <li><a href="login.php" id="registerLink">Register</a></li>
-              <li><a href="login.php">Login</a></li>
+            <li><a href="register.php" id="registerLink">Register</a></li>
+              <li><a href="login.php" id ="loginLink">Login</a></li>
           </ul>
         </div>
       </div>
@@ -66,22 +66,24 @@
       <h1 class="text-center">Popular Locations</h1>
     </div>
   </div>
-    <div class="overlay" style="display: none;">
+    <div id="overlay1" class="overlay" style="display: none;">
     <div class="login-wrapper">
         <div class="login-content" id="registerTarget">
-            <a class="close">x</a>
+            <a id ="close1" class="close">x</a>
             <h3>Register</h3>
             <form method="post" action="USA2SA_registerlogin.php">
                 <label for="e-mail">
                      E-mail:
                     <input type="email" name="e-mail" id="e-mail" placeholder="Enter e-mail address"  required />
-                    <span class="bspan" id="mailinfo"></span>
+                    
                 </label>
+                <span size="6" class="bspan" id="mailinfo"></span><br>
                 <label for="username">
                     Username:
                     <input type="text" name="username" id="username" placeholder="Enter Username Here" onkeyup="checkUserLength(this)" pattern=".{6,}" required />
-                    <span class="bspan" id="userinfo">6 chars req.</span>
+                    
                 </label>
+                <span size ="6" class="bspan" id="userinfo">6 chars req.</span><br>
                 <label for="password">
                     Password:
                     <input type="password" name="password" id="password" placeholder="Passowrd must be 6 or more characters" pattern=".{6,}"  required />
@@ -89,13 +91,35 @@
                 <label for="password2">
                     confirm password:
                     <input type="password" name="password2" id="password2" onkeyup="checkPassLength(this)" placeholder="re-enter passowrd" pattern=".{6,}" required />
-                    <span class="bspan" id="passinfo">6 chars req.</span>
+                    
                 </label>
-                <input type="submit" id= "register-submit" value="Register"></inputx>
+                <span size="6" class="bspan" id="passinfo">6 chars req.</span>
+                <br>
+                <input type="submit" id= "register-submit" value="Register"></input>
             </form>
         </div>
     </div>
 </div>
+    <div id ="overlay2" class="overlay" style="display: none;">
+    <div class="login-wrapper">
+        <div class="login-content" id="loginTarget">
+            <a id="close2" class="close">x</a>
+            <h3>Register</h3>
+            <form method="post" action="usa2sa_login.php">
+                
+                <label for="username2">
+                    Username:
+                    <input type="text" name="username2" id="username2" placeholder="Enter Username Here" onkeyup="checkUserLength(this)" required>
+                </label>
+                <label for="password3">
+                    Password:
+                    <input type="password" name="password3" id="password3" placeholder="Enter Password Here" required/>
+                </label>
+                <button type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
+        </div>
   <div class="row">
     <div class="span4 offer">
     	<div class="offer-wrap">
