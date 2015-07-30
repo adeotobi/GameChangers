@@ -1,4 +1,18 @@
+var eFlag=0;
+var uFlag=0;
+var pFlag=0;
+function registerSubmit(){
 
+    if(eFlag && uFlag && pFlag ==1)
+    {    
+        $('#register-submit').removeAttr('disabled');
+    }else
+    {
+        $('#register-submit').attr('disabled','disabled');
+    }
+}
+
+$('#register-submit').removeAttr('disabled');
 $(document).ready(function() {
     $("#registerLink").click(function( event ){
            event.preventDefault();
@@ -91,13 +105,14 @@ function checkUserLength(user)
                 if(this.responseText=='bad')
                 {
                      document.getElementById('userinfo').innerHTML = "username taken &#10008";
-                    $('#register-submit').attr('disabled','disabled');
-                    
+                     uFlag=0;
+                     registerSubmit();
                 }
                 if(this.responseText=='good')
                 {
-                     document.getElementById('userinfo').innerHTML = "username available &#9989";
-                    $('#register-submit').removeAttr('disabled');
+                    uFlag=1;
+                    document.getElementById('userinfo').innerHTML = "username available &#9989";
+                    registerSubmit();
                 }
                 //document.getElementById("userinfo").innerHTML=xmlhttp.responseText ;
                 O('userinfo').innerHTML = this.responseText;
@@ -166,10 +181,14 @@ function GetElementInsideContainer(containerID, childID) {
                 if(this.responseText=='bad')
                 {
                     //alert("dsfs");
+                     pFlag=0;
+                     registerSubmit();
                      document.getElementById('passinfo').innerHTML = "Passwords do Not Match &#10008";
                 }
                 if(this.responseText=='good')
                 {
+                     pFlag=1;
+                     registerSubmit();
                      document.getElementById('passinfo').innerHTML = "Passwords Match &#9989";
                 }
                 //O('passinfo').innerHTML = this.responseText
@@ -205,13 +224,13 @@ function GetElementInsideContainer(containerID, childID) {
                 if(this.responseText=='bad')
                 {
                     //alert("dsfs");
+                     eFlag=0;
                      document.getElementById('mailinfo').innerHTML = "E-mail taken &#10008";
-                    $('#register-submit').attr('disabled','disabled');
                 }
                 if(this.responseText=='good')
                 {
+                     eFlag=1;
                      document.getElementById('mailinfo').innerHTML = "&#9989";
-                    $('#register-submit').removeAttr('disabled');
                 }
                 //O('passinfo').innerHTML = this.responseText
                 //document.getElementById('userinfo').innerHTML = this.responseText

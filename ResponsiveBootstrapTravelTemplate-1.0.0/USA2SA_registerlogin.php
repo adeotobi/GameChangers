@@ -28,10 +28,8 @@ if($result->num_rows==0)
     $mysqli->query("INSERT INTO userlist (username,password,email,Verify_Hash) VALUES ('$myusername','$hash','$email','$hash2')");  
     echo $mysqli->connect_errno;
     mkdir("memberassets/$myusername");
-    //$mysqli->query("SELECT email FROM userlist WHERE username='$myusername'");
-    //$email=$result->fetch_array();
     $result->close();
-    $message = "Thanks for joining the USA2SA community. Please click this link below to verify you're account for USA2SA localhost/principles%20of%20soft%20eng/verify.php?email='.$email.'&verify_hash='.$hash2.'";
+    $message = 'Thanks for joining the USA2SA community. Please click this link below to verify your account for USA2SA http://localhost/Principles%20of%20Soft%20Eng/Source%20Tree2/ResponsiveBootstrapTravelTemplate-1.0.0/verify.php?email='."$email". '&verify_hash='."$hash2";
     $message = wordwrap($message, 70, "\r\n");
     $message = str_replace("\n.", "\n..", $message);
     echo $message;
@@ -40,9 +38,9 @@ if($result->num_rows==0)
    
 } else
 {
-    $_SESSION['taken']=true; //this is pointless since checking with ajax
+    //$_SESSION['taken']=true; //this is pointless since checking with ajax
 }
 //sleep(25);
-header("location:popuploginprac.php");
+header("location:main.php");
 exit();
 ?>

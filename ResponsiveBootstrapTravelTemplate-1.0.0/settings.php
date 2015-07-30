@@ -1,13 +1,9 @@
 <?php
 require_once 'usa2sa_cred.php';
-$mysqli=connect($dbhost,$dbuser,$dbpass,$dbname);
-$email=$_GET['email'];
-echo $email;
-$gHash=$_GET['verify_hash'];
-$result = $mysqli->query("SELECT Verify_Hash FROM userlist WHERE email='$email'");
-$hash=$result->fetch_array();
-echo
-    '<!doctype html>
+session_start();
+$myusername = $_SESSION['usa2sa_myusername'];
+echo'
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -59,56 +55,86 @@ echo
           </ul>
         </div>
           <div class = "nav pull-right">
-          <div class = "nav pull-right" data-toggle="modal" data-target="#myModal2">
-              <li><a href="myModal2" id ="loginLink">Login</a></li>
-              </div>
+          <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle">'.$myusername.'\'s options <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li class="divider"></li>
+            <li><a href="usa2sa_logout.php">Logout</a></li>
+        </ul>
+    </li>
+              
           </div>
       </div>
     </div>
   </div>
 </nav>
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Login</h4>
-              </div>
-              <div class="modal-body">
-                  <form method="post" action="usa2sa_login.php">              
-                      <div class="input-group">
-                          <span class="input-group-addon" id="basic-addon1"><i class="icon-user"></i></span>
-                          <input type="text" name = "username2" id = "username2"  class="form-control" placeholder="Enter Username" aria-describedby="basic-addon1" required>
-                          
-                      </div> 
-                      <div class="input-group">
-                          <span class="input-group-addon" id="basic-addon1"><i class="icon-lock"></i></span>
-                          <input required class="form-control" type="password" name="password3" id="password3" placeholder="Enter Password Here" aria-describedby="basic-addon1" required>
-                          </div>
-                      <button  type="submit" class="btn btn-primary" id= "login-submit">Login!</button>
-                </div>
-              </div>
-            </div>
-          </div>
 <header class="hidden-phone">
         <h2 class="header-title">South Africa</h2>
     </header>
 <div class="container" id="main">
   <div class="row">
     <div class="span12">
-      <h1 class="text-center">Verification Message</h1>
-      ';
-       if($hash[0] == $gHash)
-       {
-    $mysqli->query("UPDATE userlist SET verified ='1' WHERE email ='$email'");
-    echo'You have been verified please click here to return to the <a href="main.php">Home page</a> or login in using the "login" button above';
-       }else
-       {
-    echo'Not verified try registration again';
-        }
-   echo '
+      <h1 class="text-center">Settings</h1>
     </div>
+  </div>
+ 
+   
+    <input type="button" class="btn-warning btn-block" value="Change Password">
+      <input type="button" class="btn-info btn-block" value="Change Email">
+  
+    </div>
+  </div>
 </div>
+<footer class="hidden-phone">
+  <div class="container">
+    <div class="row">
+      <div class="span3">
+        <address>
+        <strong>Product Owner</strong><br />
+        Nicholas Gamarra<br />
+        <i class="icon-white icon-signal"></i> (561) 456-7890<br />
+        <i class="icon-envelope icon-white"></i> ngamarra2014@fau.edu
+        </address>
+      </div>
+      <div class="span3">
+        <address>
+        <strong>Scrum Master</strong> <br />
+        David Mendieta<br />
+        <i class="icon-white icon-signal"></i> (561) 456-7890<br />
+        <i class="icon-envelope icon-white"></i> dmendie1@fau.edu
+        </address>
+      </div>
+      <div class="span3">
+        <address>
+        <strong>Developer Team</strong> <br />
+        Hope Ashmeade<br />
+        <i class="icon-white icon-signal"></i> (561) 456-7890<br />
+        <i class="icon-envelope icon-white"></i> hashmeade2014@fau.edu
+        </address>
+      </div>
+      <div class="span3">
+        <address>
+        <strong>Developer Team</strong><br />
+        Adeola Adebiyi<br />
+        <i class="icon-white icon-signal"></i> (561) 456-7890<br />
+        <i class="icon-envelope icon-white"></i> aadebiyi@fau.edu
+        </address>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span12" id="footer-bottom">
+        <div class="row">
+          <div class="span6 text-left" id="footer-left">
+            <p>Copyright © 2015 USA2SA. All rights reserved.</p>
+          </div>
+          <div class="span6 text-right" id="footer-right">
+            <p>Terms and conditions</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 <div class="visible-phone footer-phone">
@@ -126,7 +152,8 @@ echo
   </div>
 </div>
 </body>
-</html>';
+</html>
 
+';
 
 ?>

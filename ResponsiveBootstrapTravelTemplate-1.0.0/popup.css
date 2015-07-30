@@ -1,6 +1,5 @@
 /*
 *    RESET
-*/
 *{
     box-sizing: border-box;
     margin: 0;
@@ -15,22 +14,22 @@
 
 /*
 *    GLOBAL
-*/
+
 html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
 }
-
-body {
+*/
+body.overlayz {
     background-color: #f3f3f3;
     color: rgb(165,165,165);
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
     font-weight: 400;
 }
 
-a.close {
+a.closez {
     background-color: rgb(204,204,204);
     border-radius: 50%;
     color: rgb(255,255,255);
@@ -44,7 +43,7 @@ a.close {
     right: 1.25rem;
 }
     
-    a.close:hover {
+    a.closez:hover {
         background-color: #1bc5b3;
         cursor: pointer;
     }
@@ -52,7 +51,7 @@ a.close {
 /*
 *    LOG-IN BOX
 */
-div.overlay {
+div.overlayz {
     background-color: rgba(0,0,0,.25);
     bottom: 0;
     display: flex;
@@ -64,7 +63,7 @@ div.overlay {
     z-index: 2000;
 }
 
-    div.overlay > div.login-wrapper {
+    div.overlayz > div.login-wrapperz {
         align-self: center;
         background-color: rgba(0,0,0,.25);
         border-radius: 2px;
@@ -72,14 +71,14 @@ div.overlay {
         width: 450px;
     }
     
-        div.overlay > div.login-wrapper > div.login-content {
+        div.overlayz > div.login-wrapperz > div.login-contentz {
             background-color: rgb(255,255,255);
             border-radius: 2px;
             padding: 24px;    
             position: relative;
         }
         
-            div.overlay > div.login-wrapper > div.login-content > h3 {
+            div.overlayz > div.login-wrapperz > div.login-contentz > h3 {
                 color: rgb(0,0,0);
                 font-family: 'Varela Round', sans-serif;
                 font-size: 1.8em;
@@ -88,7 +87,7 @@ div.overlay {
             }
 /*
 *    FORM
-*/
+
 form label {
     color: rgb(0,0,0);
     display: block;
@@ -147,7 +146,7 @@ form button {
     padding: .55em .9em;
     transition: all 400ms ease;    
 }
-
+*
     form button:hover {
         background-color: #1bc5b3;
         cursor: pointer;
