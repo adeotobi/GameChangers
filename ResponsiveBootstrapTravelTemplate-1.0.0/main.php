@@ -60,7 +60,7 @@ if( isset($_SESSION['usa2sa_myusername']))
         <a href="#" data-toggle="dropdown" class="dropdown-toggle">'.$myusername.'\'s options <b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a href="#">Profile</a></li>
-            <li><a href="settings.php">Settings</a></li>
+            <li><a href="settings.php">Manage Account</a></li>
             <li class="divider"></li>
             <li><a href="usa2sa_logout.php">Logout</a></li>
         </ul>
@@ -71,6 +71,7 @@ if( isset($_SESSION['usa2sa_myusername']))
     </div>
   </div>
 </nav>
+
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -142,12 +143,16 @@ if( isset($_SESSION['usa2sa_myusername']))
   <div class="row">
     <div class="span12">
       <h1 class="text-center">Popular Locations</h1>
+      
     </div>
   </div>
   <div class="row">
     <div class="span4 offer">
     	<div class="offer-wrap">
    	    <img src="./Pictures/CapeTown.jpg" alt="140x140" />
+        <div class="alert alert-danger">
+  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+</div>
         <div class="btn-group">
             <button class="btn btn-small" type="button"><em class="icon-info-sign"></em></button>
             <button class="btn btn-small" type="button"><em class="icon-plane"></em></button>
@@ -249,6 +254,7 @@ if( isset($_SESSION['usa2sa_myusername']))
     </div>
   </div>
 </div>
+
 <footer class="hidden-phone">
   <div class="container">
     <div class="row">
